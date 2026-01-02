@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  AppColors._(); // Private constructor to prevent instantiation
-
+  AppColors._(); 
   // Greens
   static const Color honeydew = Color(0xFFF1FFF3);
   static const Color lightGreen = Color(0xFFDFF7E2);
   static const Color caribbeanGreen = Color(0xFF00D09E);
 
-  // Dark Greens / Near Black
+  // Dark Greens
   static const Color cyprus = Color(0xFF0E3E3E);
   static const Color fenceGreen = Color(0xFF052224);
   static const Color voidColor = Color(0xFF031314);

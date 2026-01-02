@@ -1,5 +1,5 @@
+import 'package:expense_tracker_app/core/constants/colors/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_expense_tracker_app/core/constants/colors/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final double? height, width, borderWidth;
