@@ -1,3 +1,4 @@
+import 'package:expense_tracker_app/core/constants/app_strings/app_strings.dart';
 import 'package:expense_tracker_app/core/utils/responsive/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(height: Responsive.hp(1)),
             Center(
               child: Text(
-                'MyExpenses',
+                AppStringsAssets.appName,
                 style: Theme.of(context).textTheme.labelLarge!.copyWith(
                   color: AppColors.caribbeanGreen,
                   fontSize: Responsive.sp(9),
@@ -41,7 +42,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: Responsive.hp(0.5)),
             Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. ',
+              AppStringsAssets.welcomeSubTitle,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 fontFamily: 'poppins',
                 fontWeight: FontWeight.w400,
@@ -55,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                 onTap: () {},
                 child: Center(
                   child: Text(
-                    'Log In',
+                    AppStringsAssets.loginText,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontSize: Responsive.sp(4),
                       fontWeight: FontWeight.w600,
@@ -73,7 +74,7 @@ class WelcomeScreen extends StatelessWidget {
               onTap: () {},
               child: Center(
                 child: Text(
-                  'Sign Up',
+                  AppStringsAssets.signUpText,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontSize: Responsive.sp(4),
                     fontWeight: FontWeight.w600,
@@ -90,7 +91,7 @@ class WelcomeScreen extends StatelessWidget {
               onTap: () {},
               child: Center(
                 child: Text(
-                  'Forget Password?',
+                  AppStringsAssets.forgetText,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontSize: Responsive.sp(5),
                     fontWeight: FontWeight.w600,
