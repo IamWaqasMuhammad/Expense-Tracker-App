@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 
-import '../constants/colors/app_colors.dart';
+
+import 'package:expense_tracker_app/app_barrels.dart';
 
 class AppTheme {
   AppTheme._(); // Private constructor to prevent instantiation

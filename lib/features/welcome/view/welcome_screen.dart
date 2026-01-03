@@ -1,10 +1,7 @@
-import 'package:expense_tracker_app/core/constants/app_strings/app_strings.dart';
-import 'package:expense_tracker_app/core/utils/responsive/responsive.dart';
-import 'package:flutter/material.dart';
+import 'package:expense_tracker_app/app_barrels.dart';
 
-import '../../../core/constants/app_images/app_images.dart';
-import '../../../core/constants/colors/app_colors.dart';
-import '../../../shared/widgets/custom_button.dart';
+
+
 
 
 class WelcomeScreen extends StatelessWidget {
