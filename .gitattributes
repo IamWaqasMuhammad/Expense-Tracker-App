@@ -1,8 +1,8 @@
 # Ignore native build and config files in language stats
 *.h linguist-detectable=false
 *.cc linguist-detectable=false
-*.cpp linguist-detectable=false
-*.cmake linguist-detectable=false
+*.cpp linguist-detectable=true
+*.cmake linguist-detectable=true
 *.gradle linguist-detectable=false
 CMakeLists.txt linguist-detectable=false
 
