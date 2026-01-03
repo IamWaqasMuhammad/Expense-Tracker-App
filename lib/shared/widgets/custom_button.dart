@@ -30,22 +30,24 @@ class CustomButton extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       borderRadius: borderRadius,
-      child: InkWell(
-        onTap: onTap,
-        splashColor: AppColors.caribbeanGreen.withOpacity(0.25),
-        highlightColor: AppColors.caribbeanGreen.withOpacity(0.15),
-        borderRadius: borderRadius as BorderRadius?,
-        child: Container(
-          height: height,
-          width: width,
-          decoration: BoxDecoration(
-            color: color,
-            gradient: gradient,
-            shape: boxShape,
-            borderRadius: boxShape == BoxShape.rectangle ? borderRadius : null,
-            boxShadow: boxShadow,
+      child: Ink(
+        decoration: BoxDecoration(
+          color: color,
+          gradient: gradient,
+          borderRadius: borderRadius,
+          boxShadow: boxShadow,
+          shape: boxShape,
+        ),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: borderRadius as BorderRadius?,
+          splashColor: AppColors.caribbeanGreen.withOpacity(0.25),
+          highlightColor: AppColors.caribbeanGreen.withOpacity(0.15),
+          child: SizedBox(
+            height: height,
+            width: width,
+            child: child,
           ),
-          child: child,
         ),
       ),
     );
