@@ -1,53 +1,48 @@
-
-
-import 'package:expense_tracker_app/app_barrels.dart';
+import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  final double? height, width, borderWidth;
-  final VoidCallback? onTap;
-  final Color? color;
-  final BorderRadiusGeometry? borderRadius;
-  final Gradient? gradient;
-  final BoxShape boxShape;
-  final List<BoxShadow>? boxShadow;
-  final Widget? child;
+  final Widget child;
+  final VoidCallback onTap;
+  final double height;
+  final double width;
+  final Color color;
+  final double borderRadius;
+  final bool isLoading;
 
   const CustomButton({
     super.key,
-    this.height,
-    this.width,
-    this.borderWidth = 1.0,
-    required this.onTap,
-    this.color,
-    this.borderRadius,
-    this.gradient,
-    this.boxShape = BoxShape.rectangle,
-    this.boxShadow,
     required this.child,
+    required this.onTap,
+    this.height = 50,
+    this.width = double.infinity,
+    this.color = Colors.blue,
+    this.borderRadius = 12,
+    this.isLoading = false,
   });
+
+  // Cyprus green
+  static const Color cyprusGreen = Color(0xFF00755E);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
-      borderRadius: borderRadius,
-      child: Ink(
-        decoration: BoxDecoration(
-          color: color,
-          gradient: gradient,
-          borderRadius: borderRadius,
-          boxShadow: boxShadow,
-          shape: boxShape,
-        ),
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: borderRadius as BorderRadius?,
-          splashColor: AppColors.caribbeanGreen.withOpacity(0.25),
-          highlightColor: AppColors.caribbeanGreen.withOpacity(0.15),
-          child: SizedBox(
-            height: height,
-            width: width,
-            child: child,
+      color: color,
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(borderRadius),
+        splashColor: cyprusGreen.withOpacity(0.4),
+        highlightColor: cyprusGreen.withOpacity(0.2),
+        onTap: isLoading ? null : onTap,
+        child: SizedBox(
+          height: height,
+          width: width,
+          child: Center(
+            child: isLoading
+                ? const CircularProgressIndicator(
+              color: Colors.white,
+              strokeWidth: 2,
+            )
+                : child,
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 
 
 import 'package:expense_tracker_app/app_barrels.dart';
+import 'package:expense_tracker_app/core/constants/app_colors/app_colors.dart';
 
 class AppTheme {
   AppTheme._(); // Private constructor to prevent instantiation
@@ -54,13 +55,22 @@ class AppTheme {
       bodyMedium: TextStyle(color: AppColors.voidColor),
       titleLarge: TextStyle(
         color: AppColors.lightGreen,
+        fontFamily: 'Poppins',
+
         fontSize: 52,
         fontWeight: FontWeight.w600,
       ),
       labelLarge: TextStyle(
         color: AppColors.caribbeanGreen,
+        fontFamily: 'Poppins',
         fontWeight: FontWeight.w500,
       ),
+      labelSmall: TextStyle(
+        color: AppColors.fenceGreen,
+        fontFamily: 'Poppins',
+
+
+      )
     ),
 
     inputDecorationTheme: InputDecorationTheme(
