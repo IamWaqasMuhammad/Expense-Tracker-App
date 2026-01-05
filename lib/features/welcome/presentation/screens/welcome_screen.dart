@@ -1,6 +1,4 @@
 import 'package:expense_tracker_app/app_barrels.dart';
-import 'package:expense_tracker_app/core/constants/app_colors/app_colors.dart';
-import 'package:expense_tracker_app/features/auth/presentation/screens/login_screen/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

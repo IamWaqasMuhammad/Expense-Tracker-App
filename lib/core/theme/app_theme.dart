@@ -1,7 +1,6 @@
 
 
 import 'package:expense_tracker_app/app_barrels.dart';
-import 'package:expense_tracker_app/core/constants/app_colors/app_colors.dart';
 
 class AppTheme {
   AppTheme._(); // Private constructor to prevent instantiation

@@ -1,4 +1,3 @@
-import 'package:expense_tracker_app/core/constants/app_colors/app_colors.dart';
 
 import '../../../../../app_barrels.dart';
 
