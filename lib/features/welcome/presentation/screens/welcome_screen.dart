@@ -71,7 +71,7 @@ class WelcomeScreen extends StatelessWidget {
               onTap: () {},
               height: Responsive.hp(7),
               width: Responsive.wp(60),
-              color: AppColors.honeydew,
+              color: AppColors.lightGreen,
               borderRadius: 25,
               child: Center(
                 child: Text(
