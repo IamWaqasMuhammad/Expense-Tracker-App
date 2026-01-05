@@ -1,4 +1,6 @@
 
+import 'package:expense_tracker_app/shared/widgets/custom_text_field.dart';
+
 import '../../../../../app_barrels.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -14,14 +16,20 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: isDark? AppColors.fenceGreen:AppColors.caribbeanGreen,
       body: Stack(
         children: [
-          Positioned(
-              top: 90,
-              left: 112,
-              child: Text('Welcome',style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: isDark?AppColors.lightGreen:AppColors.voidColor,
-                fontSize: Responsive.sp(8)
-              ),),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(top: Responsive.hp(10)),
+              child: Text(
+                'Welcome',
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: isDark ? AppColors.lightGreen : AppColors.voidColor,
+                  fontSize: Responsive.sp(8),
+                ),
+              ),
+            ),
           ),
+
           Positioned(
             bottom: 0,
             right: 0,
@@ -30,7 +38,7 @@ class LoginScreen extends StatelessWidget {
               height: Responsive.hp(75),
               width: double.infinity,
               decoration: BoxDecoration(
-                color: isDark?AppColors.cyprus:AppColors.honeydew,
+                color: isDark?AppColors.cyprus:AppColors.lightGreen,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50),
                   topRight: Radius.circular(50),
@@ -40,16 +48,24 @@ class LoginScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                   horizontal: Responsive.wp(5),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: Responsive.hp(10),),
-                    Text('Email',style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                      fontSize: Responsive.sp(4),
-                      fontWeight: FontWeight.w300
-                    ),)
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: Responsive.hp(10),),
+                      Text('Email',style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                        fontSize: Responsive.sp(4),
+                        fontWeight: FontWeight.w300
+                      ),),
+                      CustomTextField(
+                        textInputAction: TextInputAction.next,
+                        textInputType: TextInputType.emailAddress,
+                        focusColor: AppColors.caribbeanGreen.withOpacity(0.5),
+
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
