@@ -1,5 +1,3 @@
-
-
 import '../../../../../app_barrels.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -81,21 +79,26 @@ class LoginScreen extends StatelessWidget {
                         textInputType: TextInputType.visiblePassword,
                         textInputAction: TextInputAction.next,
                         obscureText: true,
-                        suffixIcon: IconButton(
-                          onPressed: () {},
-                          splashColor: AppColors.cyprusGreen.withOpacity(0.4),
-                          highlightColor: AppColors.cyprusGreen.withOpacity(
-                            0.2,
+                        suffixIcon: CustomButton(
+                          height: Responsive.hp(1),
+                          width: Responsive.wp(1),
+                          borderRadius: 50,
+                          color: Colors.transparent,
+                          child: Align(
+                            alignment: AlignmentGeometry.centerRight,
+                            child: Center(
+                              child: Image.asset(
+                                AppIconsAssets.visibilityOffIcon,
+                                width: Responsive.hp(3),
+                                height: Responsive.wp(3),
+                                color: isDark
+                                    ? AppColors.honeydew.withOpacity(0.5)
+                                    : AppColors.fenceGreen,
+                                gaplessPlayback: false,
+                              ),
+                            ),
                           ),
-                          icon: Image.asset(
-                            AppIconsAssets.visibilityOffIcon,
-                            width: 20,
-                            height: 20,
-                            color: isDark
-                                ? AppColors.honeydew.withOpacity(0.5)
-                                : AppColors.fenceGreen,
-                            gaplessPlayback: false,
-                          ),
+                          onTap: () {},
                         ),
                       ),
                       SizedBox(height: Responsive.hp(1.5)),
