@@ -1,6 +1,7 @@
 
 
 import 'package:expense_tracker_app/app_barrels.dart';
+import 'package:flutter/services.dart';
 
 class AppTheme {
   AppTheme._(); // Private constructor to prevent instantiation
@@ -14,19 +15,19 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.honeydew,
     fontFamily: 'Poppins',
 
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.caribbeanGreen,
-      foregroundColor: AppColors.honeydew,
-      elevation: 0,
-      titleTextStyle: TextStyle(
-        color: AppColors.honeydew,
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.caribbeanGreen, // Light mode
+        foregroundColor: AppColors.honeydew,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          // Light mode: caribbeanGreen status bar with light icons
+          statusBarColor: AppColors.caribbeanGreen,
+          statusBarIconBrightness: Brightness.light, // White icons on green
+          statusBarBrightness: Brightness.dark,
+        ),
       ),
-      iconTheme: IconThemeData(color: AppColors.honeydew),
-    ),
 
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: AppColors.caribbeanGreen,
       foregroundColor: AppColors.honeydew,
     ),
@@ -107,15 +108,14 @@ class AppTheme {
     fontFamily: 'Poppins',
 
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.fenceGreen,
+      backgroundColor: AppColors.fenceGreen, // Dark mode
       foregroundColor: AppColors.lightGreen,
-      elevation: 0,
-      titleTextStyle: TextStyle(
-        color: AppColors.lightGreen,
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        // Dark mode: fenceGreen status bar with light icons
+        statusBarColor: AppColors.fenceGreen,
+        statusBarIconBrightness: Brightness.light, // Light icons on dark
+        statusBarBrightness: Brightness.light,
       ),
-      iconTheme: IconThemeData(color: AppColors.lightGreen),
     ),
 
     floatingActionButtonTheme: FloatingActionButtonThemeData(
