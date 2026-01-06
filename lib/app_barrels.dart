@@ -21,7 +21,7 @@ export 'package:expense_tracker_app/features/auth/presentation/widgets/forgot_wi
 export 'package:expense_tracker_app/features/auth/presentation/widgets/forgot_widgets/forgot_sub_title_widget.dart';
 export 'package:expense_tracker_app/features/auth/presentation/widgets/forgot_widgets/forgot_title_widget.dart';
 export 'package:expense_tracker_app/features/auth/presentation/widgets/forgot_widgets/forgot_google_facebook_widget.dart';
-export 'package:expense_tracker_app/features/auth/presentation/widgets/forgot_widgets/or_login_with_widget.dart';
+export 'package:expense_tracker_app/features/auth/presentation/widgets/forgot_widgets/or_login_with_forgot_widget.dart';
 export 'package:expense_tracker_app/features/home/presentations/screens/home_screen.dart';
 export 'package:expense_tracker_app/features/auth/presentation/screens/pin_code_screen/pin_code_screen.dart';
 export 'package:expense_tracker_app/features/auth/presentation/widgets/finger_print_widget/finger_print_button_widget.dart';
