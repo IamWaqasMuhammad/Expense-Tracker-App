@@ -60,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
                   AppStringsAssets.loginText,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontSize: Responsive.sp(5),
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -78,30 +78,11 @@ class WelcomeScreen extends StatelessWidget {
                   AppStringsAssets.signUpText,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontSize: Responsive.sp(5),
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
             ),
-
-            SizedBox(height: Responsive.hp(1.5)),
-            CustomButton(
-              onTap: () {},
-              height: Responsive.hp(7),
-              width: Responsive.wp(60),
-              color: AppColors.honeydew,
-              borderRadius: 25,
-              child: Center(
-                child: Text(
-                  AppStringsAssets.forgetText,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    fontSize: Responsive.sp(4),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-
           ],
         ),
       ),
