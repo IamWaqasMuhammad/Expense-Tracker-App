@@ -40,7 +40,6 @@ class WelcomeScreen extends StatelessWidget {
             Text(
               AppStringsAssets.welcomeSubTitle,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                fontFamily: 'poppins',
                 fontWeight: FontWeight.w400,
                 fontSize: Responsive.sp(4),
               ),
@@ -59,14 +58,14 @@ class WelcomeScreen extends StatelessWidget {
                 child: Text(
                   AppStringsAssets.loginText,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    fontSize: Responsive.sp(5),
+                    fontSize: Responsive.sp(4.5),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
             ),
 
-            SizedBox(height: Responsive.hp(1)),
+            SizedBox(height: Responsive.hp(2.5)),
             CustomButton(
               onTap: () {},
               height: Responsive.hp(7),
@@ -77,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                 child: Text(
                   AppStringsAssets.signUpText,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    fontSize: Responsive.sp(5),
+                    fontSize: Responsive.sp(4.5),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
