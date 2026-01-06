@@ -1,3 +1,4 @@
+import 'package:expense_tracker_app/app_barrels.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -5,7 +6,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
   final double height;
   final double width;
-  final Color color;
+  final Color? color;
   final double borderRadius;
   final bool isLoading;
 
@@ -15,13 +16,12 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     this.height = 50,
     this.width = double.infinity,
-    this.color = Colors.blue,
+    this.color,
     this.borderRadius = 12,
     this.isLoading = false,
   });
 
   // Cyprus green
-  static const Color cyprusGreen = Color(0xFF00755E);
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +30,8 @@ class CustomButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(borderRadius),
       child: InkWell(
         borderRadius: BorderRadius.circular(borderRadius),
-        splashColor: cyprusGreen.withOpacity(0.4),
-        highlightColor: cyprusGreen.withOpacity(0.2),
+        splashColor: AppColors.cyprusGreen.withOpacity(0.4),
+        highlightColor: AppColors.cyprusGreen.withOpacity(0.2),
         onTap: isLoading ? null : onTap,
         child: SizedBox(
           height: height,

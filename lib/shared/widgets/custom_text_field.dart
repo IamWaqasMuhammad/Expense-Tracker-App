@@ -7,13 +7,6 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputAction? textInputAction;
   final String? hintText;
-  final TextStyle? hintStyle;
-  final bool enabled;
-  final InputBorder? enabledBorder;
-  final InputBorder? focusBorder;
-  final InputBorder? errorBorder;
-  final InputBorder? focusErrorBorder;
-  final Color? focusColor;
   final String? Function(String?)? validator;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -26,13 +19,6 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     this.textInputAction,
     this.hintText,
-    this.hintStyle,
-    this.enabled = true,
-    this.enabledBorder,
-    this.focusBorder,
-    this.errorBorder,
-    this.focusErrorBorder,
-    this.focusColor,
     this.validator,
     this.prefixIcon,
     this.suffixIcon,
@@ -40,39 +26,49 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
     return TextFormField(
       controller: controller,
       focusNode: focusNode,
       keyboardType: textInputType,
-      obscureText: obscureText,
       textInputAction: textInputAction,
+      obscureText: obscureText,
       validator: validator,
-      enabled: enabled,
+      textAlignVertical: TextAlignVertical.center,
+      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+        fontWeight: FontWeight.w400,
+        color: isDark
+            ? AppColors.honeydew.withOpacity(0.5)
+            : AppColors.fenceGreen,
+        fontSize: Responsive.sp(2),
+      ),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: hintStyle,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        enabledBorder: enabledBorder ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.grey.shade400),
-            ),
-        focusedBorder: focusBorder ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: AppColors.caribbeanGreen),
-            ),
-        errorBorder: errorBorder ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.red),
-            ),
-        focusedErrorBorder: focusErrorBorder ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.redAccent),
-            ),
-        focusColor: focusColor,
+        hintStyle: Theme.of(context).textTheme.labelSmall!.copyWith(
+          color: isDark
+              ? AppColors.honeydew.withOpacity(0.5)
+              : AppColors.fenceGreen,
+          fontSize: Responsive.sp(2)
+        ),
+        filled: true,
+        fillColor: AppColors.cyprusGreen.withOpacity(0.1),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 14,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide.none,
+        ),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),
