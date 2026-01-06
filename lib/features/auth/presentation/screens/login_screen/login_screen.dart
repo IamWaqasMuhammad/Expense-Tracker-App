@@ -202,12 +202,12 @@ class LoginScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomButton(
-                            height: 50,
-                            width: 50,
+                            height: Responsive.hp(5),
+                            width: Responsive.wp(10),
                             borderRadius: 50,
                             child: Image.asset(
-                              height: 40,
-                              width: 40,
+                              height: Responsive.hp(10),
+                              width: Responsive.wp(10),
                               AppIconsAssets.facebookIcon,
                               fit: BoxFit.contain,
                               color: isDark
@@ -216,13 +216,14 @@ class LoginScreen extends StatelessWidget {
                             ),
                             onTap: () {},
                           ),
+                          SizedBox(width: Responsive.hp(1.5),),
                           CustomButton(
-                            height: 50,
-                            width: 50,
+                            height: Responsive.hp(5),
+                            width: Responsive.wp(10),
                             borderRadius: 50,
                             child: Image.asset(
-                              height: 40,
-                              width: 40,
+                              height: Responsive.hp(10),
+                              width: Responsive.wp(10),
                               AppIconsAssets.googleIcon,
                               fit: BoxFit.contain,
                               color: isDark
