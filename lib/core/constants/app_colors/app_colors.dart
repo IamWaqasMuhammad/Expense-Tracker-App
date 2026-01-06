@@ -6,6 +6,7 @@ class AppColors {
   static const Color honeydew = Color(0xFFF1FFF3);
   static const Color lightGreen = Color(0xFFDFF7E2);
   static const Color caribbeanGreen = Color(0xFF00D09E);
+  static const Color cyprusGreen = Color(0xFF00755E);
 
   // Dark Greens
   static const Color cyprus = Color(0xFF0E3E3E);
