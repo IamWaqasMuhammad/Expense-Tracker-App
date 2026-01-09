@@ -1,5 +1,4 @@
 import 'package:expense_tracker_app/app_barrels.dart';
-import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final Widget child;
@@ -7,6 +6,8 @@ class CustomButton extends StatelessWidget {
   final double height;
   final double width;
   final Color? color;
+  final Color? splashColor;
+  final Color? highlightedColor;
   final double borderRadius;
   final bool isLoading;
 
@@ -19,6 +20,8 @@ class CustomButton extends StatelessWidget {
     this.color,
     this.borderRadius = 12,
     this.isLoading = false,
+    this.splashColor,
+    this.highlightedColor,
   });
 
   // Cyprus green
@@ -30,8 +33,8 @@ class CustomButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(borderRadius),
       child: InkWell(
         borderRadius: BorderRadius.circular(borderRadius),
-        splashColor: AppColors.cyprusGreen.withOpacity(0.4),
-        highlightColor: AppColors.cyprusGreen.withOpacity(0.2),
+        splashColor: splashColor??AppColors.cyprusGreen.withOpacity(0.4),
+        highlightColor: highlightedColor??AppColors.cyprusGreen.withOpacity(0.2),
         onTap: isLoading ? null : onTap,
         child: SizedBox(
           height: height,

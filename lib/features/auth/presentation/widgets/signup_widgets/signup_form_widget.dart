@@ -1,4 +1,8 @@
 import 'package:expense_tracker_app/app_barrels.dart';
+import 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_bloc.dart';
+import 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_event.dart';
+import 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupFormWidget extends StatelessWidget {
   const SignupFormWidget({super.key});
@@ -102,32 +106,49 @@ class SignupFormWidget extends StatelessWidget {
               SizedBox(height: Responsive.hp(1)),
 
               /// Password Field
-              CustomTextField(
-                hintText: AppStringsAssets.passwordHintText,
-                textInputType: TextInputType.visiblePassword,
-                textInputAction: TextInputAction.next,
-                obscureText: true,
-                suffixIcon: CustomButton(
-                  height: Responsive.hp(1),
-                  width: Responsive.wp(1),
-                  borderRadius: 50,
-                  color: Colors.transparent,
-                  child: Align(
-                    alignment: AlignmentGeometry.centerRight,
-                    child: Center(
-                      child: Image.asset(
-                        AppIconsAssets.visibilityOffIcon,
-                        width: Responsive.hp(3),
-                        height: Responsive.wp(3),
-                        color: isDark
-                            ? AppColors.honeydew.withOpacity(0.5)
-                            : AppColors.fenceGreen,
-                        gaplessPlayback: false,
+              BlocBuilder<SignupPasswordBloc,SignupPasswordState>(
+                buildWhen: (previous, current) =>
+                    previous.isPassVisible != current.isPassVisible,
+                builder: (context, state) {
+                  debugPrint('SignUp Password');
+
+                  return CustomTextField(
+                    hintText: AppStringsAssets.passwordHintText,
+                    textInputType: TextInputType.visiblePassword,
+                    textInputAction: TextInputAction.next,
+                    obscureText: state.isPassVisible,
+                    suffixIcon: CustomButton(
+                      height: Responsive.hp(1),
+                      width: Responsive.wp(1),
+                                            splashColor: Colors.transparent,
+                                            highlightedColor: Colors.transparent,
+
+                      borderRadius: 50,
+                      color: Colors.transparent,
+                      child: Align(
+                        alignment: AlignmentGeometry.centerRight,
+                        child: Center(
+                          child: Image.asset(
+                            state.isPassVisible
+                                ? AppIconsAssets.visibilityOffIcon
+                                : AppIconsAssets.visibilityOnIcon,
+                            width: Responsive.hp(3),
+                            height: Responsive.wp(3),
+                            color: isDark
+                                ? AppColors.honeydew.withOpacity(0.5)
+                                : AppColors.fenceGreen,
+                            gaplessPlayback: false,
+                          ),
+                        ),
                       ),
+                      onTap: () {
+                        context.read<SignupPasswordBloc>().add(
+                          PasswordVisibilityToggledEvent(),
+                        );
+                      },
                     ),
-                  ),
-                  onTap: () {},
-                ),
+                  );
+                },
               ),
               SizedBox(height: Responsive.hp(3)),
 
@@ -143,32 +164,48 @@ class SignupFormWidget extends StatelessWidget {
               SizedBox(height: Responsive.hp(1)),
 
               /// Confirm Password Field
-              CustomTextField(
-                hintText: AppStringsAssets.passwordHintText,
-                textInputType: TextInputType.visiblePassword,
-                textInputAction: TextInputAction.next,
-                obscureText: true,
-                suffixIcon: CustomButton(
-                  height: Responsive.hp(1),
-                  width: Responsive.wp(1),
-                  borderRadius: 50,
-                  color: Colors.transparent,
-                  child: Align(
-                    alignment: AlignmentGeometry.centerRight,
-                    child: Center(
-                      child: Image.asset(
-                        AppIconsAssets.visibilityOffIcon,
-                        width: Responsive.hp(3),
-                        height: Responsive.wp(3),
-                        color: isDark
-                            ? AppColors.honeydew.withOpacity(0.5)
-                            : AppColors.fenceGreen,
-                        gaplessPlayback: false,
+              BlocBuilder<SignupPasswordBloc, SignupPasswordState>(
+                buildWhen: (previous, current) =>
+                    previous.isConfirmPasswordVisible !=
+                    current.isConfirmPasswordVisible,
+                builder: (context, state) {
+                  debugPrint('Confirm Password');
+                  return CustomTextField(
+                    hintText: AppStringsAssets.passwordHintText,
+                    textInputType: TextInputType.visiblePassword,
+                    textInputAction: TextInputAction.next,
+                    obscureText: state.isConfirmPasswordVisible,
+                    suffixIcon: CustomButton(
+                      height: Responsive.hp(1),
+                      width: Responsive.wp(1),
+                      splashColor: Colors.transparent,
+                      highlightedColor: Colors.transparent,
+                      borderRadius: 50,
+                      color: Colors.transparent,
+                      child: Align(
+                        alignment: AlignmentGeometry.centerRight,
+                        child: Center(
+                          child: Image.asset(
+                            state.isConfirmPasswordVisible
+                                ? AppIconsAssets.visibilityOffIcon
+                                : AppIconsAssets.visibilityOnIcon,
+                            width: Responsive.hp(3),
+                            height: Responsive.wp(3),
+                            color: isDark
+                                ? AppColors.honeydew.withOpacity(0.5)
+                                : AppColors.fenceGreen,
+                            gaplessPlayback: false,
+                          ),
+                        ),
                       ),
+                      onTap: () {
+                        context.read<SignupPasswordBloc>().add(
+                          ConfirmPasswordVisibilityToggledEvent(),
+                        );
+                      },
                     ),
-                  ),
-                  onTap: () {},
-                ),
+                  );
+                },
               ),
 
               SizedBox(height: Responsive.hp(5)),
