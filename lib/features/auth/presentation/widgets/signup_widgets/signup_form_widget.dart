@@ -20,9 +20,7 @@ class SignupFormWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   fontSize: Responsive.sp(4),
                   fontWeight: FontWeight.w400,
-                  color: isDark
-                      ? AppColors.lightGreen
-                      : AppColors.voidColor,
+                  color: isDark ? AppColors.lightGreen : AppColors.voidColor,
                 ),
               ),
               SizedBox(height: Responsive.hp(1)),
@@ -41,9 +39,7 @@ class SignupFormWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   fontSize: Responsive.sp(4),
                   fontWeight: FontWeight.w400,
-                  color: isDark
-                      ? AppColors.lightGreen
-                      : AppColors.voidColor,
+                  color: isDark ? AppColors.lightGreen : AppColors.voidColor,
                 ),
               ),
               SizedBox(height: Responsive.hp(1)),
@@ -62,9 +58,7 @@ class SignupFormWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   fontSize: Responsive.sp(4),
                   fontWeight: FontWeight.w400,
-                  color: isDark
-                      ? AppColors.lightGreen
-                      : AppColors.voidColor,
+                  color: isDark ? AppColors.lightGreen : AppColors.voidColor,
                 ),
               ),
               SizedBox(height: Responsive.hp(1)),
@@ -83,9 +77,7 @@ class SignupFormWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   fontSize: Responsive.sp(4),
                   fontWeight: FontWeight.w400,
-                  color: isDark
-                      ? AppColors.lightGreen
-                      : AppColors.voidColor,
+                  color: isDark ? AppColors.lightGreen : AppColors.voidColor,
                 ),
               ),
               SizedBox(height: Responsive.hp(1)),
@@ -104,9 +96,7 @@ class SignupFormWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   fontSize: Responsive.sp(4),
                   fontWeight: FontWeight.w400,
-                  color: isDark
-                      ? AppColors.lightGreen
-                      : AppColors.voidColor,
+                  color: isDark ? AppColors.lightGreen : AppColors.voidColor,
                 ),
               ),
               SizedBox(height: Responsive.hp(1)),
@@ -147,9 +137,7 @@ class SignupFormWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   fontSize: Responsive.sp(4),
                   fontWeight: FontWeight.w400,
-                  color: isDark
-                      ? AppColors.lightGreen
-                      : AppColors.voidColor,
+                  color: isDark ? AppColors.lightGreen : AppColors.voidColor,
                 ),
               ),
               SizedBox(height: Responsive.hp(1)),
@@ -184,12 +172,17 @@ class SignupFormWidget extends StatelessWidget {
               ),
 
               SizedBox(height: Responsive.hp(5)),
+
               ///SignUp Button
               Center(
                 child: CustomButton(
                   onTap: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>FingerPrintScreen()));
-
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FingerPrintScreen(),
+                      ),
+                    );
                   },
                   height: Responsive.hp(7),
                   width: Responsive.wp(60),
@@ -198,8 +191,7 @@ class SignupFormWidget extends StatelessWidget {
                   child: Center(
                     child: Text(
                       AppStringsAssets.signUpText,
-                      style: Theme.of(context).textTheme.bodySmall!
-                          .copyWith(
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         fontSize: Responsive.sp(4.5),
                         fontWeight: FontWeight.w500,
                       ),

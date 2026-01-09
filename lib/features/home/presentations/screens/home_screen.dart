@@ -18,20 +18,22 @@ class HomeScreen extends StatelessWidget {
             ? AppColors.fenceGreen
             : AppColors.caribbeanGreen,
         resizeToAvoidBottomInset: false,
-        body: SafeArea(
-          top: false,
-          child: Stack(
-            children: [
-
-              Positioned(
-                bottom: 0,
-                right: 0,
-                left: 0,
+        body: Stack(
+          children: [
+            Align(
+              alignment: AlignmentGeometry.topCenter,
+              child: Text('Home Screen',style: Theme.of(context).textTheme.headlineLarge,),
+            ),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              left: 0,
+              child: ClipRect(
                 child: Container(
-                  height: Responsive.hp(65),
+                  height: Responsive.hp(70),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: isDark ? AppColors.cyprus : AppColors.lightGreen,
+                    color: isDark ? AppColors.cyprus : AppColors.honeydew,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50),
@@ -43,16 +45,14 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
