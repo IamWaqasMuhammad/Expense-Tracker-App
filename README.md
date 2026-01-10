@@ -1,4 +1,4 @@
-# 💰 MyExpenses – Smart Expense Tracker Appp
+# 💰 MyExpenses – Smart Expense Tracker App
 
 [MyExpenses](https://github.com/IamWaqasMuhammad/Expense-Tracker-App) is a powerful, secure, and user-friendly expense tracking application built with **Flutter**.  
 It helps users track, analyze, and manage their expenses efficiently with real-time data, charts, and detailed reports.
