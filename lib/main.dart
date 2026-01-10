@@ -1,10 +1,10 @@
 import 'package:expense_tracker_app/features/auth/presentation/blocs/login_blocs/password_bloc/login_password_bloc.dart';
 import 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_bloc.dart';
+import 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_bloc.dart';
+import 'package:expense_tracker_app/features/main/presentations/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'core/theme/app_theme.dart';
-import 'features/welcome/presentation/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => LoginPasswordBloc()),
         BlocProvider(create: (context) => SignupPasswordBloc()),
+        BlocProvider(create: (context) => BottomNavBloc()),
       ],
       child: MaterialApp(
         title: 'MyExpenses',
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           curve: Curves.easeInOut,
           duration: Duration(milliseconds: 500),
         ),
-        home: const WelcomeScreen(),
+        home: MainScreen(),
       ),
     );
   }

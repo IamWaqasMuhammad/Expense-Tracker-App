@@ -36,6 +36,7 @@ export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_
 export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_widget/pin_code_sub_title_widget.dart';
 export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_widget/pin_code_title_widget.dart';
 export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_widget/use_pin_code_to_access_text_widget.dart';
+export 'features/analysis/presentation/screen/analysis_screen.dart';
 
 
 

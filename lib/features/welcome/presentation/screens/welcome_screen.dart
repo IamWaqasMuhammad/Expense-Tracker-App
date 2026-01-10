@@ -1,5 +1,4 @@
 import 'package:expense_tracker_app/app_barrels.dart';
-import 'package:flutter/services.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
