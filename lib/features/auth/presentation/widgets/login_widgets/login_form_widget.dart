@@ -1,9 +1,6 @@
 import 'package:expense_tracker_app/features/auth/presentation/blocs/login_blocs/password_bloc/login_password_bloc.dart';
 import 'package:expense_tracker_app/features/auth/presentation/blocs/login_blocs/password_bloc/login_password_event.dart';
 import 'package:expense_tracker_app/features/auth/presentation/blocs/login_blocs/password_bloc/login_password_state.dart';
-import 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_bloc.dart';
-import 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_event.dart';
-import 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../app_barrels.dart';

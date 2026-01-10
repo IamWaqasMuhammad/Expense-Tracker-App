@@ -1,7 +1,6 @@
 
 
 import 'package:expense_tracker_app/app_barrels.dart';
-import 'package:flutter/services.dart';
 
 class AppTheme {
   AppTheme._(); // Private constructor to prevent instantiation
