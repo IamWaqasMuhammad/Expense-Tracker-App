@@ -1,12 +1,15 @@
-import 'package:expense_tracker_app/shared/widgets/custom_vertical_divider.dart';
+import 'package:expense_tracker_app/features/home/presentations/widgets/balance_info_column.dart';
+import 'package:expense_tracker_app/shared/widgets/main_bottom_container.dart';
 
 import '../../../../../app_barrels.dart';
+import 'package:expense_tracker_app/shared/widgets/custom_vertical_divider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Responsive.init(context);
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
@@ -14,193 +17,191 @@ class HomeScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Responsive.wp(6),
-              vertical: Responsive.hp(3.5),
-            ),
-            child: Align(
-              alignment: AlignmentGeometry.topLeft,
+          /// TOP CONTENT
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Responsive.wp(6),
+                vertical: Responsive.hp(3),
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: Responsive.hp(3)),
+                  /// HEADER
                   Row(
                     children: [
-                      Text(
-                        'Hi, ',
-                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          fontSize: Responsive.sp(5.5),
-                          color: isDark
-                              ? AppColors.lightGreen
-                              : AppColors.voidColor,
+                      RichText(
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.labelLarge!
+                              .copyWith(
+                                fontSize: Responsive.sp(5.5),
+                                color: isDark
+                                    ? AppColors.lightGreen
+                                    : AppColors.voidColor,
+                              ),
+                          children: const [
+                            TextSpan(text: 'Hi, '),
+                            TextSpan(text: 'Welcome Back!'),
+                          ],
                         ),
                       ),
-                      Text(
-                        'Welcome Back!',
-                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          fontSize: Responsive.sp(5.5),
-                          color: isDark
-                              ? AppColors.lightGreen
-                              : AppColors.voidColor,
-                        ),
-                      ),
-                      Spacer(),
+                      const Spacer(),
                       Container(
-                        height: 30,
-                        width: 30,
+                        height: 36,
+                        width: 36,
                         decoration: BoxDecoration(
-                          color: AppColors.lightGreen,
                           shape: BoxShape.circle,
+                          color: isDark
+                              ? AppColors.cyprusGreen.withOpacity(0.2)
+                              : AppColors.lightGreen,
                         ),
-                        child: CustomButton(
-                          child: Icon(Icons.notifications_outlined),
-                          onTap: () {},
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.notifications_outlined,
+                            size: 20,
+                            color: isDark
+                                ? AppColors.honeydew
+                                : AppColors.voidColor,
+                          ),
+                          onPressed: () {},
                         ),
                       ),
                     ],
                   ),
+
+
                   Text(
                     'Good Morning',
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
+
                   SizedBox(height: Responsive.hp(4)),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: Responsive.hp(3)),
 
-                    /// Main Column Contains Rows & Columns
-                    child: Column(
+                  /// BALANCE SECTION
+                  Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        BalanceInfoColumn(
+                          title: 'Total Balance',
+                          value: '\$7,783.00',
+                          icon: AppIconsAssets.incomeIcon,
+                        ),
 
-                        /// Total Balance Row
-                        Row(
-                          children: [
-                            Column(
-                              children: [
-                                /// Income Icon and Total Balance Text Row
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 15,
-                                      width: 15,
-                                      child: Image.asset(
-                                        AppIconsAssets.incomeIcon,
-                                        fit: BoxFit.contain,
-                                        color: isDark
-                                            ? AppColors.lightGreen
-                                            : AppColors.voidColor,
-                                      ),
-                                    ),
-                                    SizedBox(width: Responsive.wp(1)),
-                                    Text(
-                                      'Total Balance',
-                                      style: Theme.of(
-                                        context,
-                                      ).textTheme.labelMedium,
-                                    ),
-                                  ],
-                                ),
+                        SizedBox(width: Responsive.wp(6)),
 
-                                /// Total Balance
-                                Text(
-                                  "\$7,783.00",
-                                  style: Theme.of(context).textTheme.titleMedium!
-                                      .copyWith(
-                                        fontSize: Responsive.sp(6.5),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(width: Responsive.wp(2)),
+                        CustomVerticalDivider(
+                          height: Responsive.hp(6.5),
+                          width: Responsive.wp(0.4),
+                        ),
 
-                            /// Vertical Divider
-                            CustomVerticalDivider(
-                              height: Responsive.hp(6.5),
-                              width: Responsive.wp(0.5),
-                            ),
-                            SizedBox(width: Responsive.wp(2)),
+                        SizedBox(width: Responsive.wp(6)),
 
-                            /// Total Expenses Column
-                            Column(
-                              children: [
-                                /// Expense Icon and Total Expense Text
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 15,
-                                      width: 15,
-                                      child: Image.asset(
-                                        AppIconsAssets.expenseIcon,
-                                        fit: BoxFit.contain,
-                                        color: isDark
-                                            ? AppColors.lightGreen
-                                            : AppColors.voidColor,
-                                      ),
-                                    ),
-                                    SizedBox(width: Responsive.wp(1)),
-                                    Text(
-                                      'Total Expenses',
-                                      style: Theme.of(
-                                        context,
-                                      ).textTheme.labelMedium,
-                                    ),
-                                  ],
-                                ),
-
-                                /// Total Expenses
-                                Text(
-                                  "-\$1.187.40",
-                                  style: Theme.of(context).textTheme.titleMedium!
-                                      .copyWith(
-                                        fontSize: Responsive.sp(7),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                    color: AppColors.oceanBlue
-                                      ),
-                                ),
-                              ],
-                            ),
-
-                          ],
+                        BalanceInfoColumn(
+                          title: 'Total Expenses',
+                          value: '-\$1,187.40',
+                          icon: AppIconsAssets.expenseIcon,
+                          valueColor: AppColors.oceanBlue,
                         ),
                       ],
                     ),
                   ),
+                  SizedBox(height: Responsive.hp(3)),
+
+                  /// ==============PROGRESS BAR===============
+                  Center(
+                    child: Container(
+                      height: 27,
+                      width: Responsive.wp(75),
+                      decoration: BoxDecoration(
+                        color: isDark
+                            ? AppColors.cyprusGreen.withOpacity(0.1)
+                            : AppColors.lightGreen,
+                        borderRadius: BorderRadius.circular(50),
+
+                      ),
+                      child: Stack(
+                        children: [
+                          // Progress Fill
+                          Container(
+                            height: double.infinity,
+                            width: (Responsive.wp(75) * 0.3),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  isDark ? AppColors.caribbeanGreen : AppColors.oceanBlue,
+                                  isDark ? AppColors.cyprusGreen : AppColors.caribbeanGreen,
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          // Text Content
+                          Center(
+                            child: Row(
+                              children: [
+                                SizedBox(width: 10),
+                                Text(
+                                  '30%',
+                                  style: TextStyle(
+                                    color: isDark ? AppColors.honeydew : AppColors.voidColor,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                Spacer(),
+                                Text(
+                                  "\$20,000.00",
+                                  style: TextStyle(
+                                    color: isDark ? AppColors.honeydew : AppColors.voidColor,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: Responsive.hp(2)),
+
+                  /// Centered Check Icon + Text
+                  Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          AppIconsAssets.checkIcon,
+                          height: 14,
+                          width: 14,
+                          color: isDark?AppColors.lightGreen:AppColors.voidColor,
+                        ),
+                        SizedBox(width: Responsive.wp(1.5)),
+                        Flexible(
+                          child: Text(
+                            '30% of your expenses, looks good',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: Responsive.hp(1),),
+
                 ],
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            left: 0,
-            child: ClipRect(
-              child: Container(
-                height: Responsive.hp(65),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: isDark ? AppColors.cyprus : AppColors.honeydew,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: Responsive.wp(5)),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+
+          /// BOTTOM ROUNDED CONTAINER
+          MainBottomContainer(widthPercentage: 60, child: Column(children: [])),
         ],
       ),
     );
