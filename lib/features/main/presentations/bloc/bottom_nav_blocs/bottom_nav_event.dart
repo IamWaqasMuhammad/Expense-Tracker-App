@@ -6,8 +6,8 @@ abstract class BottomNavEvent {
 }
 
 class BottomNavItemSelectedEvent extends BottomNavEvent {
-  final int index;
-  const BottomNavItemSelectedEvent(this.index);
+  final int tabIndex;
+  const BottomNavItemSelectedEvent({this.tabIndex=0});
 }
 
 

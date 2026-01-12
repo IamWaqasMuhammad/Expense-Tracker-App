@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavBloc extends Bloc<BottomNavEvent, BottomNavState> {
   BottomNavBloc() : super(const BottomNavState()) {
-    on<BottomNavItemSelectedEvent>((event, emit) {
-      emit(state.copyWith(selectedIndex: event.index));
-    });
+    on<BottomNavItemSelectedEvent>(_bottomNavItemSelectedEvent);
+  }
+
+  void _bottomNavItemSelectedEvent(BottomNavItemSelectedEvent event, Emitter<BottomNavState> emit){
+     emit(state.copyWith(selectedIndex: event.tabIndex));
   }
 }

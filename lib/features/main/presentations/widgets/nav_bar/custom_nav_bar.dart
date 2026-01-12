@@ -1,80 +1,53 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:expense_tracker_app/app_barrels.dart';
 import 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_bloc.dart';
 import 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_event.dart';
 import 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_state.dart';
-import 'package:expense_tracker_app/app_barrels.dart';
 import 'package:expense_tracker_app/features/main/presentations/widgets/nav_bar/nav_bar_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomNavBar extends StatelessWidget {
-  const CustomNavBar({super.key});
+  CustomNavBar({super.key});
+
+  final List<String> _icons = [
+    AppIconsAssets.homeIcon,
+    AppIconsAssets.analysisIcon,
+    AppIconsAssets.transactionIcon,
+    AppIconsAssets.categoryIcon,
+    AppIconsAssets.profileIcon,
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Container(
-        height: 70,
-        decoration: BoxDecoration(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? AppColors.fenceGreen.withOpacity(0.9)
-              : AppColors.honeydew,
-          borderRadius: BorderRadius.circular(40),
-        ),
-        child: BlocBuilder<BottomNavBloc, BottomNavState>(
-          builder: (context, state) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildNavItem(
-                  context,
-                  AppIconsAssets.homeIcon,
-                  0,
-                  state.selectedIndex,
-                ),
-                _buildNavItem(
-                  context,
-                  AppIconsAssets.analysisIcon,
-                  1,
-                  state.selectedIndex,
-                ),
-                _buildNavItem(
-                  context,
-                  AppIconsAssets.transactionIcon,
-                  2,
-                  state.selectedIndex,
-                ),
-                _buildNavItem(
-                  context,
-                  AppIconsAssets.categoryIcon,
-                  3,
-                  state.selectedIndex,
-                ),
-                _buildNavItem(
-                  context,
-                  AppIconsAssets.profileIcon,
-                  4,
-                  state.selectedIndex,
-                ),
-              ],
-            );
-          },
-        ),
-      ),
-    );
-  }
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
 
-  Widget _buildNavItem(
-    BuildContext context,
-    String iconPath,
-    int index,
-    int selectedIndex,
-  ) {
-    return NavBarItem(
-      imgPath: iconPath,
-      isSelected: selectedIndex == index,
-      onTap: () {
-        // Dispatch event instead of setState
-        context.read<BottomNavBloc>().add(BottomNavItemSelectedEvent(index));
+    return BlocBuilder<BottomNavBloc, BottomNavState>(
+      builder: (context, state) {
+        return Container(
+          height: Responsive.hp(11),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+            ),
+            color: isDark
+                ? AppColors.cyprusGreen.withOpacity(0.2)
+                : AppColors.lightGreen,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(_icons.length, (index) {
+              return NavBarItem(
+                imgPath: _icons[index],
+                isSelected: state.selectedIndex == index,
+                onTap: () {
+                  context.read<BottomNavBloc>().add(
+                    BottomNavItemSelectedEvent(tabIndex: index),
+                  );
+                },
+              );
+            }),
+          ),
+        );
       },
     );
   }

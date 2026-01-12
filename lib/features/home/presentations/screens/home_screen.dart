@@ -1,4 +1,3 @@
-
 import '../../../../../app_barrels.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,7 +21,10 @@ class HomeScreen extends StatelessWidget {
           children: [
             Align(
               alignment: AlignmentGeometry.topCenter,
-              child: Text('Home Screen',style: Theme.of(context).textTheme.headlineLarge,),
+              child: Text(
+                'Home Screen',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
             ),
             Positioned(
               bottom: 0,
