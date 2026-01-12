@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  AppColors._(); 
+  AppColors._();
+
+  static const Color transperent = Colors.transparent;
+
   // Greens
   static const Color honeydew = Color(0xFFF1FFF3);
   static const Color lightGreen = Color(0xFFDFF7E2);
