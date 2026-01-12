@@ -20,7 +20,7 @@ class NavBarItem extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         height: isSelected ? Responsive.hp(6) : Responsive.hp(5),
-        width: isSelected ? Responsive.wp(13) : Responsive.wp(8),
+        width: isSelected ? Responsive.wp(12) : Responsive.wp(8),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.caribbeanGreen : AppColors.transperent,
           borderRadius: BorderRadius.circular(20),
@@ -28,8 +28,8 @@ class NavBarItem extends StatelessWidget {
         child: Center(
           child: Image.asset(
             imgPath,
-            width: isSelected ? Responsive.hp(15) : Responsive.hp(12),
-            height: isSelected ? Responsive.wp(8) : Responsive.wp(6),
+            width: isSelected ? Responsive.hp(12) : Responsive.hp(10),
+            height: isSelected ? Responsive.wp(7) : Responsive.wp(5),
             color: isDark ? AppColors.honeydew : AppColors.voidColor,
           ),
         ),
