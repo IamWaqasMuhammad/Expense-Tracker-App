@@ -37,7 +37,11 @@ export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_
 export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_widget/pin_code_title_widget.dart';
 export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_widget/use_pin_code_to_access_text_widget.dart';
 export 'features/analysis/presentation/screen/analysis_screen.dart';
-
+export 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_bloc.dart';
+export 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_event.dart';
+export 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_state.dart';
+export 'package:expense_tracker_app/features/main/presentations/widgets/nav_bar/nav_bar_item.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
 
 
 
