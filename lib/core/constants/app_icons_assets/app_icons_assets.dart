@@ -13,9 +13,10 @@ class AppIconsAssets {
    static const String transactionIcon = '$baseUrl/transaction_icon.png';
    static const String categoryIcon = '$baseUrl/category_icon.png';
    static const String profileIcon = '$baseUrl/profile_icon.png';
-   static const String notificationIcon = '$baseUrl/notification_icon.png';
    static const String incomeIcon = '$baseUrl/income_icon.png';
    static const String expenseIcon = '$baseUrl/expense_icon.png';
    static const String checkIcon = '$baseUrl/check_icon.png';
+   static const String salaryIcon = '$baseUrl/salary_icon.png';
+   static const String foodIcon = '$baseUrl/food_icon.png';
 
 }
