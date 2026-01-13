@@ -1,8 +1,11 @@
 import 'package:expense_tracker_app/features/home/presentations/widgets/balance_info_column.dart';
+import 'package:expense_tracker_app/shared/widgets/custom_container.dart';
 import 'package:expense_tracker_app/shared/widgets/main_bottom_container.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../../../../app_barrels.dart';
-import 'package:expense_tracker_app/shared/widgets/custom_vertical_divider.dart';
+import 'package:expense_tracker_app/shared/widgets/custom_divider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -55,20 +58,13 @@ class HomeScreen extends StatelessWidget {
                               ? AppColors.cyprusGreen.withOpacity(0.2)
                               : AppColors.lightGreen,
                         ),
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.notifications_outlined,
-                            size: 20,
-                            color: isDark
-                                ? AppColors.honeydew
-                                : AppColors.voidColor,
-                          ),
-                          onPressed: () {},
+                        child: CustomButton(
+                          child: Icon(Icons.notifications_outlined),
+                          onTap: () {},
                         ),
                       ),
                     ],
                   ),
-
 
                   Text(
                     'Good Morning',
@@ -91,7 +87,7 @@ class HomeScreen extends StatelessWidget {
 
                         SizedBox(width: Responsive.wp(6)),
 
-                        CustomVerticalDivider(
+                        CustomDivider(
                           height: Responsive.hp(6.5),
                           width: Responsive.wp(0.4),
                         ),
@@ -119,7 +115,11 @@ class HomeScreen extends StatelessWidget {
                             ? AppColors.cyprusGreen.withOpacity(0.1)
                             : AppColors.lightGreen,
                         borderRadius: BorderRadius.circular(50),
-
+                        border: Border.all(
+                          color: isDark
+                              ? AppColors.honeydew
+                              : AppColors.transperent,
+                        ),
                       ),
                       child: Stack(
                         children: [
@@ -130,8 +130,12 @@ class HomeScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
-                                  isDark ? AppColors.caribbeanGreen : AppColors.oceanBlue,
-                                  isDark ? AppColors.cyprusGreen : AppColors.caribbeanGreen,
+                                  isDark
+                                      ? AppColors.caribbeanGreen
+                                      : AppColors.oceanBlue,
+                                  isDark
+                                      ? AppColors.cyprusGreen
+                                      : AppColors.caribbeanGreen,
                                 ],
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
@@ -147,7 +151,9 @@ class HomeScreen extends StatelessWidget {
                                 Text(
                                   '30%',
                                   style: TextStyle(
-                                    color: isDark ? AppColors.honeydew : AppColors.voidColor,
+                                    color: isDark
+                                        ? AppColors.honeydew
+                                        : AppColors.voidColor,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 14,
                                   ),
@@ -156,7 +162,9 @@ class HomeScreen extends StatelessWidget {
                                 Text(
                                   "\$20,000.00",
                                   style: TextStyle(
-                                    color: isDark ? AppColors.honeydew : AppColors.voidColor,
+                                    color: isDark
+                                        ? AppColors.honeydew
+                                        : AppColors.voidColor,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 14,
                                   ),
@@ -181,7 +189,9 @@ class HomeScreen extends StatelessWidget {
                           AppIconsAssets.checkIcon,
                           height: 14,
                           width: 14,
-                          color: isDark?AppColors.lightGreen:AppColors.voidColor,
+                          color: isDark
+                              ? AppColors.lightGreen
+                              : AppColors.voidColor,
                         ),
                         SizedBox(width: Responsive.wp(1.5)),
                         Flexible(
@@ -193,15 +203,135 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: Responsive.hp(1),),
-
+                  SizedBox(height: Responsive.hp(1)),
                 ],
               ),
             ),
           ),
 
           /// BOTTOM ROUNDED CONTAINER
-          MainBottomContainer(widthPercentage: 60, child: Column(children: [])),
+          MainBottomContainer(
+            widthPercentage: 60,
+            child: Column(
+              children: [
+                CustomContainer(
+                  height: 152,
+                  width: 357,
+                  color: AppColors.caribbeanGreen,
+                  borderRadius: BorderRadius.circular(20),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            SizedBox(height: 20),
+                            CircularPercentIndicator(
+                              radius: 25.0,
+                              lineWidth: 3.0,
+                              percent: 0.60,
+                              center: FaIcon(
+                                FontAwesomeIcons.car,
+                                color: AppColors.voidColor,
+                                size: 25,
+                              ),
+                              progressColor: Colors.blue,
+                              backgroundColor: Colors.white,
+                              circularStrokeCap: CircularStrokeCap.round,
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Saving\n On Goals',
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 20),
+                        CustomDivider(height: 100, width: 2),
+                        SizedBox(width: 15),
+                        Column(
+                          children: [
+                            SizedBox(height: 20),
+
+                            // Revenue Row
+                            Row(
+                              children: [
+                                Image.asset(
+                                  AppIconsAssets.salaryIcon,
+                                  height: Responsive.hp(6),
+                                  width: Responsive.wp(10),
+                                  color: AppColors.voidColor,
+                                ),
+                                SizedBox(width: 10),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Revenue Last Week',
+                                      style: Theme.of(context).textTheme.labelMedium, // same as Food title
+                                    ),
+                                    Text(
+                                      '\$4000.00',
+                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                        fontSize: Responsive.sp(5.5),
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'Poppins',
+                                        color: AppColors.oceanBlue, // same as Food amount
+                                      ),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+                            SizedBox(height: 10),
+                            CustomDivider(height: 2, width: 170),
+                            SizedBox(height: 10),
+
+                            // Food Row (aligned like Revenue row)
+                            Row(
+                              children: [
+                                Image.asset(
+                                  AppIconsAssets.foodIcon,
+                                  height: Responsive.hp(6),
+                                  width: Responsive.wp(10),
+                                  color: AppColors.voidColor,
+
+                                ),
+                                SizedBox(width: 10),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Food Last Week',
+                                    ),
+                                    Text(
+                                      '-\$100.00',
+                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                        fontSize: Responsive.sp(5.5),
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'Poppins',
+                                        color: AppColors.oceanBlue,
+                                      ),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
