@@ -208,17 +208,17 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomContainer(
-                  height: 152,
-                  width: 357,
+                  height: Responsive.hp(21),
+                  width: Responsive.wp(90),
                   color: AppColors.caribbeanGreen,
                   borderRadius: BorderRadius.circular(20),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    padding:  EdgeInsets.symmetric(horizontal: Responsive.wp(5)),
                     child: Row(
                       children: [
                         Column(
                           children: [
-                            SizedBox(height: 20),
+                            SizedBox(height: Responsive.hp(3.8)),
                             CircularPercentIndicator(
                               radius: 25.0,
                               lineWidth: 3.0,
@@ -232,19 +232,19 @@ class HomeScreen extends StatelessWidget {
                               backgroundColor: Colors.white,
                               circularStrokeCap: CircularStrokeCap.round,
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: Responsive.hp(0.5)),
                             Text(
                               'Saving\n On Goals',
                               textAlign: TextAlign.center,
                             ),
                           ],
                         ),
-                        SizedBox(width: 20),
-                        CustomDivider(height: 100, width: 2),
-                        SizedBox(width: 15),
+                        SizedBox(width: Responsive.hp(3.8)),
+                        CustomDivider(height: Responsive.hp(14), width: Responsive.wp(0.5)),
+                        SizedBox(width: Responsive.wp(3.8)),
                         Column(
                           children: [
-                            SizedBox(height: 20),
+                            SizedBox(height: Responsive.hp(3.8) ),
 
                             // Revenue Row
                             Row(
@@ -255,7 +255,7 @@ class HomeScreen extends StatelessWidget {
                                   width: Responsive.wp(10),
                                   color: AppColors.voidColor,
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: Responsive.wp(3)),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -284,9 +284,9 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
 
-                            SizedBox(height: 10),
-                            CustomDivider(height: 2, width: 170),
-                            SizedBox(height: 10),
+                            SizedBox(height: Responsive.hp(1)),
+                            CustomDivider(height: Responsive.hp(0.3), width: Responsive.wp(45)),
+                            SizedBox(height: Responsive.hp(1)),
 
                             // Food Row (aligned like Revenue row)
                             Row(
@@ -297,7 +297,7 @@ class HomeScreen extends StatelessWidget {
                                   width: Responsive.wp(10),
                                   color: AppColors.voidColor,
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: Responsive.wp(4)),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -320,6 +320,8 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            SizedBox(height: Responsive.hp(2),)
+
                           ],
                         ),
                       ],
