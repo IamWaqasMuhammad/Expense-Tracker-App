@@ -1,11 +1,4 @@
-import 'package:expense_tracker_app/features/home/presentations/widgets/balance_info_column.dart';
-import 'package:expense_tracker_app/shared/widgets/custom_container.dart';
-import 'package:expense_tracker_app/shared/widgets/main_bottom_container.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
-
 import '../../../../../app_barrels.dart';
-import 'package:expense_tracker_app/shared/widgets/custom_divider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -269,16 +262,21 @@ class HomeScreen extends StatelessWidget {
                                   children: [
                                     Text(
                                       'Revenue Last Week',
-                                      style: Theme.of(context).textTheme.labelMedium, // same as Food title
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.labelMedium,
                                     ),
                                     Text(
                                       '\$4000.00',
-                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                        fontSize: Responsive.sp(5.5),
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: 'Poppins',
-                                        color: AppColors.oceanBlue, // same as Food amount
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium!
+                                          .copyWith(
+                                            fontSize: Responsive.sp(5.5),
+                                            fontWeight: FontWeight.w600,
+                                            fontFamily: 'Poppins',
+                                            color: AppColors.voidColor,
+                                          ),
                                       textAlign: TextAlign.start,
                                     ),
                                   ],
@@ -298,24 +296,24 @@ class HomeScreen extends StatelessWidget {
                                   height: Responsive.hp(6),
                                   width: Responsive.wp(10),
                                   color: AppColors.voidColor,
-
                                 ),
                                 SizedBox(width: 10),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      'Food Last Week',
-                                    ),
+                                    Text('Food Last Week'),
                                     Text(
                                       '-\$100.00',
-                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                        fontSize: Responsive.sp(5.5),
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: 'Poppins',
-                                        color: AppColors.oceanBlue,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium!
+                                          .copyWith(
+                                            fontSize: Responsive.sp(5.5),
+                                            fontWeight: FontWeight.w600,
+                                            fontFamily: 'Poppins',
+                                            color: AppColors.oceanBlue,
+                                          ),
                                       textAlign: TextAlign.start,
                                     ),
                                   ],
@@ -323,8 +321,7 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
                           ],
-                        )
-
+                        ),
                       ],
                     ),
                   ),

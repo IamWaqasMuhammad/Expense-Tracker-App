@@ -37,11 +37,25 @@ export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_
 export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_widget/pin_code_title_widget.dart';
 export 'package:expense_tracker_app/features/auth/presentation/widgets/pin_code_widget/use_pin_code_to_access_text_widget.dart';
 export 'features/analysis/presentation/screen/analysis_screen.dart';
-export 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_bloc.dart';
-export 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_event.dart';
-export 'package:expense_tracker_app/features/main/presentations/bloc/bottom_nav_blocs/bottom_nav_state.dart';
-export 'package:expense_tracker_app/features/main/presentations/widgets/nav_bar/nav_bar_item.dart';
+export 'package:expense_tracker_app/features/landing/presentations/bloc/bottom_nav_blocs/bottom_nav_bloc.dart';
+export 'package:expense_tracker_app/features/landing/presentations/bloc/bottom_nav_blocs/bottom_nav_event.dart';
+export 'package:expense_tracker_app/features/landing/presentations/bloc/bottom_nav_blocs/bottom_nav_state.dart';
+export 'package:expense_tracker_app/features/landing/presentations/widgets/nav_bar/nav_bar_item.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:expense_tracker_app/features/home/presentations/widgets/balance_info_column.dart';
+export 'package:expense_tracker_app/shared/widgets/custom_container.dart';
+export 'package:expense_tracker_app/shared/widgets/main_bottom_container.dart';
+export 'package:font_awesome_flutter/font_awesome_flutter.dart';
+export 'package:percent_indicator/circular_percent_indicator.dart';
+export 'package:expense_tracker_app/shared/widgets/custom_divider.dart';
+export 'package:expense_tracker_app/features/category/presentation/screen/category_screen.dart';import 'package:expense_tracker_app/features/profile/presentation/screen/profile_screen.dart';
+export 'package:expense_tracker_app/features/transaction/presentation/screen/transaction_screen.dart';
+export 'package:expense_tracker_app/features/auth/presentation/blocs/login_blocs/password_bloc/login_password_bloc.dart';
+export 'package:expense_tracker_app/features/auth/presentation/blocs/signup_blocs/password_bloc/signup_password_bloc.dart';
+export 'core/theme/app_theme.dart';
+export 'package:expense_tracker_app/features/landing/presentations/widgets/nav_bar/custom_nav_bar.dart';
+export 'package:expense_tracker_app/features/profile/presentation/screen/profile_screen.dart';
+export 'package:expense_tracker_app/features/landing/presentations/screens/landing_screen.dart';
 
 
 
